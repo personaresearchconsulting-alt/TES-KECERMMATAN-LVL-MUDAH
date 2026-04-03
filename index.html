@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Center | Persona Research & Consulting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0b2340;
+            --gold: #d4a017;
+            --ivory: #f9f9f9;
+            --dark-slate: #1e293b;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--ivory);
+            color: var(--navy);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-top: 6px solid var(--navy);
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .logo-area h1 {
+            font-weight: 900;
+            font-size: 24px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: var(--navy);
+        }
+
+        .logo-area p {
+            color: var(--gold);
+            font-weight: 700;
+            margin-top: 0;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 25px 0;
+        }
+
+        .btn-link {
+            display: block;
+            background: var(--navy);
+            color: var(--gold);
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .btn-link:hover {
+            background: transparent;
+            color: var(--navy);
+        }
+
+        #status-msg {
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .expired { color: #c0392b; background: #fee2e2; }
+        .active { color: #27ae60; background: #ecfdf5; }
+
+        footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-area">
+            <h1>PERSONA</h1>
+            <p>Research & Consulting</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div id="content-area">
+            <a href="huruflvl1.html" class="btn-link" id="main-link">KECERMATAN HURUF (LEVEL 1)</a>
+            <div id="status-msg">Memeriksa status modul...</div>
+        </div>
+
+        <div class="divider"></div>
+        
+        <footer>
+            &copy; 2026 Persona Research & Consulting<br>
+            Professional Psychometric Assessment
+        </footer>
+    </div>
+
+    <script>
+        // Tanggal Kedaluwarsa: 1 Juli 2026
+        const expiryDate = new Date('2026-07-01T23:59:59');
+        const now = new Date();
+        const statusMsg = document.getElementById('status-msg');
+        const mainLink = document.getElementById('main-link');
+
+        if (now > expiryDate) {
+            // Jika sudah lewat tanggal 1 Juli 2026
+            mainLink.style.pointerEvents = 'none';
+            mainLink.style.opacity = '0.5';
+            mainLink.style.background = '#94a3b8';
+            mainLink.style.borderColor = '#94a3b8';
+            mainLink.textContent = 'LINK KEDALUWARSA';
+            
+            statusMsg.textContent = 'Akses ditutup sejak 1 Juli 2026. Silakan hubungi admin.';
+            statusMsg.className = 'expired';
+        } else {
+            // Jika masih aktif
+            statusMsg.textContent = 'Modul Aktif hingga 1 Juli 2026';
+            statusMsg.className = 'active';
+        }
+    </script>
+</body>
+</html>
